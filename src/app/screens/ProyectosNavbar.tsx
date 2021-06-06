@@ -131,9 +131,9 @@ const ProyectosNavbar: React.FC<Props> = (props) => {
       </Grid>
       <Stack direction="row" height={12} paddingLeft={16} spacing={2}>
         {renderGallery &&
-          props.galeriaProyecto.map(({id, url}) => (
+          props.galeriaProyecto.map((pict: any) => (
             <Stack
-              key={id}
+              key={pict.id}
               _hover={{borderColor: "secondary.500", cursor: "pointer"}}
               //borderColor={index == idSelectedPicture ? bordeImagenSelected : bordeImagen}
               borderColor="secondary.900"
@@ -142,12 +142,12 @@ const ProyectosNavbar: React.FC<Props> = (props) => {
               padding="1px"
             >
               <Image
-                key={id}
+                key={pict.id}
                 data-proyid={renderGallery}
-                data-selectedimageid={id}
+                data-selectedimageid={pict.id}
                 height={12}
                 objectFit="cover"
-                src={url}
+                src={pict.url}
                 width={12}
                 onClick={(e) => props.onImageClick(e)}
               />
